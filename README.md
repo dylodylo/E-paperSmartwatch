@@ -8,7 +8,7 @@ Via android application phone is connecting with the bluetooth module, which is 
 STM is sending data to the e-watch display.
 
 ### Tools: 
-IntelliJ - IDE for creating mobile application.
+IntelliJ - IDE for creating mobile application. </br>
 Eclipse - STM32 Discovery board.
 ### How to run:
 ### How to compile:
