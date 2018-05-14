@@ -1,4 +1,4 @@
-package com.example.danyal.bluetoothhc05;
+package com.example.ivan.ewatch;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -17,39 +17,37 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class DeviceList extends AppCompatActivity {
-
     Button btnPaired;
     ListView devicelist;
 
     private BluetoothAdapter myBluetooth = null;
     private Set<BluetoothDevice> pairedDevices;
-    public static String EXTRA_ADDRESS = "device_address";
+    public static String EXTRA_ADDRESS="device_address";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
-
-        btnPaired = (Button) findViewById(R.id.button);
-        devicelist = (ListView) findViewById(R.id.listView);
-
+        btnPaired=(Button) findViewById(R.id.button);
+        devicelist=(ListView) findViewById(R.id.listView);
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
-        if ( myBluetooth==null ) {
-            Toast.makeText(getApplicationContext(), "Bluetooth device not available", Toast.LENGTH_LONG).show();
+        if(myBluetooth==null)
+        {
+            Toast.makeText(getApplicationContext(),"Bluetooth device not available",Toast.LENGTH_LONG).show();
             finish();
-        } else if ( !myBluetooth.isEnabled() ) {
-            Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(turnBTon, 1);
         }
-
+        else if (!myBluetooth.isEnabled())
+        {
+            Intent turnButton = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(turnButton,1);
+        }
         btnPaired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pairedDevicesList();
             }
-        });
+            });
     }
-
     private void pairedDevicesList () {
         pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
@@ -66,14 +64,13 @@ public class DeviceList extends AppCompatActivity {
         devicelist.setAdapter(adapter);
         devicelist.setOnItemClickListener(myListClickListener);
     }
-
     private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             String info = ((TextView) view).getText().toString();
             String address = info.substring(info.length()-17);
 
-            Intent i = new Intent(DeviceList.this, ledControl.class);
+            Intent i = new Intent(DeviceList.this, Main.class);
             i.putExtra(EXTRA_ADDRESS, address);
             startActivity(i);
         }
