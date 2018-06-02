@@ -1,4 +1,4 @@
-package com.example.smartwatchv01;
+package com.example.ivan.ewatch;
 
 import org.junit.Test;
 
