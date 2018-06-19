@@ -8,7 +8,7 @@ Na potrzeby projektu stworzona została aplikacja na Androida o nazwie EWatch. P
 Schemat działania jest następujący: po połączeniu telefonu z modułem Bluetooth (przycisk „Open” w aplikacji) aplikacja odbiera od płytki wysyłane sygnały. W zależności od wysyłanego sygnału aplikacja zwraca inne dane (np. godzinę, stan baterii, ilość powiadomień). Zmiana sygnału zachodzi poprzez wciśnięcie odpowiedniego przycisku na panelu.
 
 ### Tools: 
-•	System Workbench for STM32
+•	System Workbench for STM32<br />
 •	Android Studio
 
 ### How to run:
